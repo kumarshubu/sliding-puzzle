@@ -1,0 +1,16 @@
+.block {
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fee;
+  margin: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.blockDiv {
+  position: relative;
+  transition: 0.5s;
+}
