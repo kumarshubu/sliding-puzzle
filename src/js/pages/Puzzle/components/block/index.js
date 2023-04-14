@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 function index(props) {
-  const { number, coordinate, emptyBlock, setEmptyBlock } = props;
+  const { number, coordinate, emptyBlock, setEmptyBlock, setVirtualMatrix } =
+    props;
   const [currentCoordinate, setCurrentCoordinate] = useState(null);
   const [translateX, setTranslateX] = useState(0);
   const [translateY, setTranslateY] = useState(0);
-
+  const swapBlocks = (a, b, i, j, arr) => {
+    let temp = arr[a][b];
+    arr[a][b] = arr[i][j];
+    arr[i][j] = temp;
+    return arr;
+  };
   const handleTranslate = () => {
     const [row, col] = currentCoordinate;
     const [emptyRow, emptyCol] = emptyBlock;
@@ -28,6 +34,9 @@ function index(props) {
         }
         setEmptyBlock(currentCoordinate);
         setCurrentCoordinate([row + delRow[i], col + delCol[i]]);
+        setVirtualMatrix((prev) =>
+          swapBlocks(row - 1, col - 1, emptyRow - 1, emptyCol - 1, prev)
+        );
       }
     }
   };
@@ -36,8 +45,8 @@ function index(props) {
     setCurrentCoordinate(coordinate);
   }, []);
   useEffect(() => {
-    console.log("new Current Coordinate", currentCoordinate);
-    console.log(translateX, translateY);
+    // console.log("new Current Coordinate", currentCoordinate);
+    // console.log(translateX, translateY);
   }, [currentCoordinate]);
   useEffect(() => {
     // console.log("new emptyBlock", emptyBlock);
