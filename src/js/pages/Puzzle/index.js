@@ -47,7 +47,7 @@ function Puzzle() {
   }, [emptyBlock, virtualMaxtrix]);
   useEffect(() => {
     if (hasWon) {
-      alert("You Won!");
+      setTimeout(() => alert("You Won!"), 0.4);
     }
   }, [hasWon]);
   return (
