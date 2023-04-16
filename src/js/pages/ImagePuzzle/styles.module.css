@@ -1,0 +1,44 @@
+.containerTemp {
+  background-color: #fff;
+  /* padding: 0.5rem; */
+  /* border: 8px solid blue; */
+  width: 37rem;
+  height: 37rem;
+  /* margin: 1rem 0; */
+}
+
+.containerBodyTemp {
+  /* background-color: blue;
+  padding: 0.5rem; */
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: none;
+  width: unset;
+  height: unset;
+}
+
+.blockDiv {
+  position: relative;
+  transition: 1s;
+}
+
+@media only screen and (max-width: 1000px) {
+  .containerTemp {
+    background-color: #fff;
+    /* padding: 0.5rem;
+    border: 8px solid blue; */
+    width: unset;
+    height: unset;
+    /* margin: 1rem 0; */
+    max-width: 100%;
+  }
+  .containerBodyTemp {
+    /* background-color: blue;
+    padding: 0.5rem; */
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #fee;
+    width: 100vw;
+    height: 100vw;
+  }
+}

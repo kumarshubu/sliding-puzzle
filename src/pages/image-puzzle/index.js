@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Puzzle from "../js/pages/ImagePuzzle";
+import Puzzle from "../../js/pages/ImagePuzzle";
 function SlidingPuzzle() {
   return (
     <>
