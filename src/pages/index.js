@@ -1,6 +1,6 @@
-import React from 'react'
-import Head from 'next/head'
-import Puzzle from './Puzzle'
+import React from "react";
+import Head from "next/head";
+import Puzzle from "../js/pages/ImagePuzzle";
 function SlidingPuzzle() {
   return (
     <>
@@ -10,9 +10,9 @@ function SlidingPuzzle() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <Puzzle/>
+      <Puzzle />
     </>
-  )
+  );
 }
 
-export default SlidingPuzzle
+export default SlidingPuzzle;

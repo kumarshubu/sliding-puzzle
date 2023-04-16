@@ -6,50 +6,24 @@ function index(props) {
   const [currentCoordinate, setCurrentCoordinate] = useState(null);
   const [translateX, setTranslateX] = useState(0);
   const [translateY, setTranslateY] = useState(0);
-  const [multiplier, setMultiplier] = useState(128);
-  // const [mapping, setMapping] = useState([
-  //   [
-  //     [4, 4],
-  //     [3, 4],
-  //     [2, 4],
-  //     [1, 4],
-  //   ],
-  //   [
-  //     [4, 3],
-  //     [3, 3],
-  //     [2, 3],
-  //     [1, 3],
-  //   ],
-  //   [
-  //     [4, 2],
-  //     [3, 2],
-  //     [2, 2],
-  //     [1, 2],
-  //   ],
-  //   [
-  //     [4, 1],
-  //     [3, 1],
-  //     [2, 1],
-  //     [1, 1],
-  //   ],
-  // ]);
+
   const [mapping, setMapping] = useState({
-    1: [4, 4],
-    2: [3, 4],
-    3: [2, 4],
-    4: [1, 4],
-    5: [4, 3],
-    6: [3, 3],
-    7: [2, 3],
-    8: [1, 3],
-    9: [4, 2],
-    10: [3, 2],
-    11: [2, 2],
-    12: [1, 2],
-    13: [4, 1],
-    14: [3, 1],
-    15: [2, 1],
-    16: [1, 1],
+    1: [0, 0],
+    2: [33.3333, 0],
+    3: [66.6667, 0],
+    4: [100, 0],
+    5: [0, 33.3333],
+    6: [33.3333, 33.3333],
+    7: [66.6667, 33.3333],
+    8: [100, 33.3333],
+    9: [0, 66.6667],
+    10: [33.3333, 66.6667],
+    11: [66.6667, 66.6667],
+    12: [100, 66.6667],
+    13: [0, 100],
+    14: [33.3333, 100],
+    15: [66.6667, 100],
+    16: [100, 100],
   });
   const swapBlocks = (a, b, i, j, arr) => {
     let temp = arr[a][b];
@@ -66,16 +40,16 @@ function index(props) {
       if (row + delRow[i] == emptyRow && col + delCol[i] == emptyCol) {
         if (delRow[i] == -1 && delCol[i] == 0) {
           //move up
-          setTranslateY((prev) => prev + -144);
+          setTranslateY((prev) => prev - window.innerWidth / 4);
         } else if (delRow[i] == 0 && delCol[i] == 1) {
           //move right
-          setTranslateX((prev) => prev + 144);
+          setTranslateX((prev) => prev + window.innerWidth / 4);
         } else if (delRow[i] == 1 && delCol[i] == 0) {
           //move down
-          setTranslateY((prev) => prev + 144);
+          setTranslateY((prev) => prev + window.innerWidth / 4);
         } else if (delRow[i] == 0 && delCol[i] == -1) {
           //move left
-          setTranslateX((prev) => prev + -144);
+          setTranslateX((prev) => prev - window.innerWidth / 4);
         }
         setEmptyBlock(currentCoordinate);
         setCurrentCoordinate([row + delRow[i], col + delCol[i]]);
@@ -89,20 +63,17 @@ function index(props) {
   useEffect(() => {
     setCurrentCoordinate(coordinate);
   }, []);
-  useEffect(() => {
-    // console.log("new Current Coordinate", currentCoordinate);
-    // console.log(translateX, translateY);
-  }, [currentCoordinate]);
-  useEffect(() => {
-    // console.log("new emptyBlock", emptyBlock);
-  }, [emptyBlock]);
 
   return (
     <>
       <div
+        id="block"
         onClick={handleTranslate}
-        className={styles.blockDiv}
+        className={styles.block + " " + styles.puzzle + " " + styles.blockDiv}
         style={{
+          backgroundPosition: `${
+            mapping[number][0] + "%" + " " + mapping[number][1] + "%"
+          }`,
           transform:
             translateX && translateY
               ? `translate(${translateX}px,${translateY}px)`
@@ -113,21 +84,7 @@ function index(props) {
               : null,
         }}
       >
-        <div
-          id="block"
-          className={styles.block + " " + styles.puzzle}
-          style={{
-            backgroundPosition: `${
-              mapping[number][0] * multiplier +
-              "px" +
-              " " +
-              mapping[number][1] * multiplier +
-              "px"
-            }`,
-          }}
-        >
-          {number}
-        </div>
+        {number}
       </div>
     </>
   );
