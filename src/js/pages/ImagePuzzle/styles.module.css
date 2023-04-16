@@ -1,0 +1,58 @@
+.container {
+  background-color: #fff;
+  padding: 0.5rem;
+  border: 8px solid blue;
+  width: 29rem;
+  height: 29rem;
+}
+
+.containerBody {
+  background-color: blue;
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* temp */
+/* .containerTemp {
+  background-color: #fff;
+  padding: 0.5rem;
+  border: 8px solid blue;
+  width: 15rem;
+  height: 8rem;
+  margin: 1rem 0;
+}
+
+.containerBodyTemp {
+  background-color: blue;
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.blockDiv {
+  position: relative;
+  transition: 1s;
+} */
+
+/* temp */
+.containerTemp {
+  background-color: #fff;
+  padding: 0.5rem;
+  border: 8px solid blue;
+  width: 37rem;
+  height: 37rem;
+  margin: 1rem 0;
+}
+
+.containerBodyTemp {
+  background-color: blue;
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.blockDiv {
+  position: relative;
+  transition: 1s;
+}

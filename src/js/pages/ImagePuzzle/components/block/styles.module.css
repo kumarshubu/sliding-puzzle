@@ -15,3 +15,10 @@
   position: relative;
   transition: 0.35s;
 }
+
+.puzzle {
+  background-image: url(https://play-lh.googleusercontent.com/IeNJWoKYx1waOhfWF6TiuSiWBLfqLb18lmZYXSgsH1fvb8v1IYiZr5aYWe0Gxu-pVZX3);
+  width: 128px;
+  height: 128px;
+  /* background-repeat: no-repeat; */
+}
